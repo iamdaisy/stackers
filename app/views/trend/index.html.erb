@@ -1,0 +1,281 @@
+<br><br><br>
+
+<center><h1>Trend Stacks</h1></center>
+
+<br><br><br>
+
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-6"><center>Ten most forked projects</center><div id="RotateXAxisTickText1"></div></div>
+  <div class="col-sm-6">  <center>Projects with the most contributors</center><div id="RotateXAxisTickText2"></div></div>
+</div>
+
+<br><br><br><br>
+
+<div class="row">
+    <div class="col-sm-6"><center>Projects with the most reviews</center><div id="RotateXAxisTickText3"></div></div>
+    <div class="col-sm-6"><center>ten most-discussed repositories</center><div id="RotateXAxisTickText4"></div></div>
+</div>
+
+<br><br><br><br>
+
+
+    <center>Not just software</center>
+<div class="container">
+        <div class = "row">
+          <div id="DonutChart"></div>
+        </div>
+    </div>
+</div>
+
+
+<br><br><br><hr><br>
+
+<div class="container">
+  <div class='row'>
+    <%j=0%>
+    <%@types.each do |type|%>
+  <div class="col-lg-6 col-xl-5 mb-6">
+
+      <h4 class="f1 h lh-condensed mb-4">
+        <strong><%= type%></strong>
+        <br>
+      </h4>
+      <ol class="list-style-none f5 f4-md text-uppercase text-break">
+        <%for i in 0..4%>
+          <li class="my-3">
+            <span><font color="blue"><%= @stack_trends[i+j]["stack_name"]%></font><br>
+            </span>
+          </li>
+        <%end%>
+      <%j+=5%><br><hr><br>
+      </ol>
+    </div>
+    <%end%>
+    <br>
+  </div>
+</div>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+bb.generate({
+
+  "data": {
+    "x": "x",
+    "columns": [
+    ["x", "tensorflow/tensorflow", "twbs/bootstrap", "github/gitgnore", "barryclark/jekyll-now",
+  "tensorflow/modelst", "vuejs/vue", "facebook/react", "jloro/patchwork", "spring-projects/spring-boo", "torvalds"],
+    ["values", 24, 15, 10.8, 10.7, 8.3, 8.1, 8, 7.4, 7.4, 6.1]
+    ],
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#b1cbbb";
+          // for data type (ex. line, bar)
+        } else {
+          return "#eea29a";
+        }
+      } else {
+        return 'white';
+      }
+    }
+  },
+  "axis": {
+    "rotated": true,
+    "x": {
+      "type": "category",
+      "width": 1,
+      "tick": {
+        "rotate": 75,
+        "multiline": false,
+        "outer": false
+      },
+      "height": 130,
+    },
+    "y": {
+      "show": false
+    }
+  },
+  "bindto": "#RotateXAxisTickText1"
+});
+bb.generate({
+  "data": {
+    "x": "x",
+    "columns": [
+    ["x", "microsoft/vscode", "facebook/react-native", "npm/npm", "angular/angular-cli",
+  "tensorflow/tensorflow", "fortawesome/font-awesome", "angular/angular", "docker/docke", "sjloro/patchwork", "ansible/ansible"],
+    ["values", 15, 8.8, 7.6, 7.4, 7.3, 6.8, 6, 6, 5.9, 5.9]
+    ],
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#b1cbbb";
+          // for data type (ex. line, bar)
+        } else {
+          return "#eea29a";
+        }
+      } else {
+        return 'white';
+      }
+    }
+  },
+  "axis": {
+    "rotated": true,
+    "x": {
+      "type": "category",
+      "tick": {
+        "rotate": 75,
+        "multiline": false,
+        "outer": false
+      },
+      "height": 130
+    },
+    "y": {
+      "show": false
+    }
+  },
+  "bindto": "#RotateXAxisTickText2"
+});
+bb.generate({
+  "data": {
+    "x": "x",
+    "columns": [
+    ["x", "definitelyped/devinitelytyped", "kubernetes/kubernete", "homebrew/homebrew-core", "ansible/ansible",
+  "nodejs/node", "nixos/nixpkgs", "apache/spark", "rust-lang/rust", "symfony/symfony ", "tensorflow/tensorflow"],
+    ["values", 800, 680, 580, 550, 480, 480, 450, 390, 340, 340]
+    ],
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#b1cbbb";
+          // for data type (ex. line, bar)
+        } else {
+          return "#eea29a";
+        }
+      } else {
+        return 'white';
+      }
+    }
+  },
+  "axis": {
+    "rotated": true,
+    "x": {
+      "type": "category",
+      "tick": {
+        "rotate": 75,
+        "multiline": false,
+        "outer": false
+      },
+      "height": 130
+    },
+    "y": {
+      "show": false
+    }
+  },
+  "bindto": "#RotateXAxisTickText3"
+});
+
+bb.generate({
+  "data": {
+    "x": "x",
+    "columns": [
+    ["x", "kubernetes/kubernetes", "openshift/origin", "cwm-sw/cmsww", "microsoft/vscode",
+  "rust-lang/rust", "dotnet/corex", "tggstation/tgstation", "nodejs/node", "servo/servo", "ansible/ansible"],
+    ["values", 388.1, 91.1, 80.1, 78.7, 75.6, 75.2, 74.8, 66.3, 54.9, 53.9]
+    ],
+    "type": "bar",
+
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#b1cbbb";
+          // for data type (ex. line, bar)
+        } else {
+          return "#eea29a";
+        }
+      } else {
+        return 'white';
+      }
+    }
+  },
+
+  "axis": {
+    "rotated": true,
+    "x": {
+      "type": "category",
+      "tick": {
+        "rotate": 75,
+        "multiline": false,
+        "outer": false
+      },
+      "height": 130,
+      "label": false,
+    },
+    "y": {
+      "show": false
+    }
+  },
+  "bindto": "#RotateXAxisTickText4"
+});
+var donut_count = 0
+var donut_color = ["#deeaee", "#b1cbbb","#eea29a", "#c94c4c","#8d1414"]
+var chart = bb.generate({
+  "data": {
+    "columns": [
+    ["software&internet", 22],
+    ["financial services", 13],
+  ["business services", 10],
+  ["manufacturing", 7],
+  ["education", 7],
+  ["telecom", 5],
+  ["healthcare", 5],
+  ["entertainment", 4.5],
+  ["retail", 4.4],
+  ["electronics", 3.9],
+  ["etc", 18.2]
+    ],
+    "type": "donut",
+    "title": {
+           "text": "not just software"
+    },
+    "onclick": function (d, i) { console.log("onclick", d, i); },
+    "onover": function (d, i) { console.log("onover", d, i); },
+    "onout": function (d, i) { console.log("onout", d, i); },
+    color: function(color, d) {
+      console.log(d)
+      if (typeof d === "string") {
+        // for data point
+        //if (d.index % 2 == 1) {
+        donut_count++;
+          return donut_color[donut_count % donut_color.length];
+          // for data type (ex. line, bar)
+        //} else {
+      //    return "#cce6ff";
+        //}
+      } else {
+        console.log(typeof d)
+        console.log("!!!")
+
+        return 'blue';
+      }
+    }
+  },
+  "donut": {
+    "title": "not just software"
+  },
+
+  "bindto": "#DonutChart"
+});
+</script>

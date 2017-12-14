@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Site url:</strong>
+  <%= @service.site_url %>
+</p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @service.logo_url %>
+</p>
+
+<p>
+  <strong>Describe:</strong>
+  <%= @service.describe %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @service.company.name %>
+</p>
+
+<p>
+  <strong>Stack:</strong><br>
+  <% @stacks.each do |r|%>
+    <a href="/stacks/<%=r.stack.id%>">
+      <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=r.stack.stack_field.name%>/<%= r.stack.name.capitalize %>.png" width="40">
+    </a>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', "/enter/companies/#{@service.company_id}/services/#{@service.id}/edit" %> |
+<%= link_to 'Delete', "/enter/companies/#{@service.company_id}/services/#{@service.id}", method: :delete %> |
+<%= link_to 'Back', enter_company_path(@service.company_id) %>
